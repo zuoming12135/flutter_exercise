@@ -2,13 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'CustomAppBar.dart';
-import '../StackWidget.dart';
+import 'StackWidget.dart';
 import 'package:flutter_exercise/Laguage/Laguage.dart';
 import 'RowColumn.dart';
 import 'imageWidget.dart';
 import 'ButtonsWidget.dart';
 import 'ExpandWidget.dart';
-
+import 'TextWidget.dart';
 final List<String> _listRows = [
   'Laguage',
   'AppBar',
@@ -17,6 +17,7 @@ final List<String> _listRows = [
   'Image',
   'Buttons',
   'Expand',
+  'Text',
 ];
 
 class HomePage extends StatelessWidget {
@@ -37,6 +38,7 @@ class HomePage extends StatelessWidget {
         'Image': (BuildContext context) => ImageWidget(),
         'Buttons': (BuildContext context) => ButtonsWidget(),
         'Expand': (BuildContext context) => ExpandWidget(),
+        'Text': (BuildContext context) => TextWidget(),
         // 'AppBar':(BuildContext context) => CustomAppBar(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
