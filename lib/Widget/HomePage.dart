@@ -2,21 +2,33 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'CustomAppBar.dart';
-import '../StackWidget.dart';
+import 'StackWidget.dart';
 import 'package:flutter_exercise/Laguage/Laguage.dart';
 import 'RowColumn.dart';
 import 'imageWidget.dart';
 import 'ButtonsWidget.dart';
 import 'ExpandWidget.dart';
-
-final List<String> _listRows = [
-  'Laguage',
-  'AppBar',
-  'StackWidget',
-  'RowColumn',
-  'Image',
-  'Buttons',
-  'Expand',
+import 'TextWidget.dart';
+import 'LifeCycleDemo/LifeCycle.dart';
+import 'LifeCycleDemo/page2.dart';
+import 'LifeCycleDemo/page1.dart';
+import 'package:flutter_exercise/Beans.dart';
+import 'Observer.dart';
+import 'ListViewWidget.dart';
+import 'CustomScrollview.dart';
+final List<ListBean> _listRows = [
+  ListBean(title: 'Laguage', detail: '自定义语言') ,
+  ListBean(title: 'AppBar', detail: 'Material风格AppBar') ,
+  ListBean(title: 'StackWidget', detail: '栈控件，可展示多个控件') ,
+  ListBean(title: 'RowColumn', detail: '横向或者竖向多控件集合展示控件') ,
+  ListBean(title: 'Image', detail: '三种加载图片方式') ,
+  ListBean(title: 'Buttons', detail: '常见的按钮控件') ,
+  ListBean(title: 'Expand', detail: 'Expand包裹的子控件可以填满剩余的空间') ,
+  ListBean(title: 'Text', detail: '显示文本组件') ,
+  ListBean(title: 'LifeCycle', detail: 'Flutter生命周期') ,
+  ListBean(title: 'Observer', detail: '监听状态') ,
+  ListBean(title: 'ListView', detail: 'ListView常见的用法') ,
+  ListBean(title: 'CustomScrollview', detail: 'CustomScrollview') ,
 ];
 
 class HomePage extends StatelessWidget {
@@ -37,6 +49,13 @@ class HomePage extends StatelessWidget {
         'Image': (BuildContext context) => ImageWidget(),
         'Buttons': (BuildContext context) => ButtonsWidget(),
         'Expand': (BuildContext context) => ExpandWidget(),
+        'Text': (BuildContext context) => TextWidget(),
+        'LifeCycle': (BuildContext context) => LifeCycle(),
+        'page2': (BuildContext context) => page2(),
+        'page1': (BuildContext context) => page1(),
+        'Observer': (BuildContext context) => Observer(),
+        'ListView': (BuildContext context) => ListViewWidget(),
+        'CustomScrollview': (BuildContext context) => CustomScrollviewWidget(),
         // 'AppBar':(BuildContext context) => CustomAppBar(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
@@ -53,6 +72,7 @@ class MyHomePageState extends StatefulWidget {
 class _MyHomePageStateState extends State<MyHomePageState> {
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -84,19 +104,35 @@ class _MyHomePageStateState extends State<MyHomePageState> {
 
   Widget _buildListView() {
     return ListView(
-      children: _listRows.map((String title) {
-        return _buildRow(title);
+      children: _listRows.map((ListBean bean) {
+
+        return _buildRow(bean);
       }).toList(),
     );
   }
 
-  Widget _buildRow(String title) {
+  Widget _buildRow(ListBean bean) {
     return ListTile(
-      title: Text(title),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(bean.title),
+          Text(bean.detail,style: TextStyle(fontSize: 13),)
+        ],
+      ),
       onTap: () {
-        print('点击了 $title');
-        Navigator.of(context).pushNamed(title);
+        // print('点击了 $title');
+        Navigator.of(context).pushNamed(bean.title);
       },
     );
   }
 }
+
+// class CustomListItem extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
+
