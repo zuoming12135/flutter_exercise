@@ -5,6 +5,7 @@ class Observer extends StatefulWidget {
   _ObserverState createState() => _ObserverState();
 }
 
+
 class _ObserverState extends State<Observer> with WidgetsBindingObserver {
   @override
   void initState() {
@@ -20,10 +21,12 @@ class _ObserverState extends State<Observer> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Container();
   }
+
 
   // 监听app生命状态
   //
@@ -48,4 +51,5 @@ class _ObserverState extends State<Observer> with WidgetsBindingObserver {
     // TODO: implement didPushRoute
     return super.didPushRoute(route);
   }
+
 }

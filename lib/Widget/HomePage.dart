@@ -13,6 +13,7 @@ import 'LifeCycleDemo/LifeCycle.dart';
 import 'LifeCycleDemo/page2.dart';
 import 'LifeCycleDemo/page1.dart';
 import 'package:flutter_exercise/Beans.dart';
+
 import 'Observer.dart';
 import 'ListViewWidget.dart';
 import 'CustomScrollview.dart';
@@ -26,9 +27,12 @@ final List<ListBean> _listRows = [
   ListBean(title: 'Expand', detail: 'Expand包裹的子控件可以填满剩余的空间') ,
   ListBean(title: 'Text', detail: '显示文本组件') ,
   ListBean(title: 'LifeCycle', detail: 'Flutter生命周期') ,
+
   ListBean(title: 'Observer', detail: '监听状态') ,
   ListBean(title: 'ListView', detail: 'ListView常见的用法') ,
   ListBean(title: 'CustomScrollview', detail: 'CustomScrollview') ,
+
+
 ];
 
 class HomePage extends StatelessWidget {
@@ -53,9 +57,11 @@ class HomePage extends StatelessWidget {
         'LifeCycle': (BuildContext context) => LifeCycle(),
         'page2': (BuildContext context) => page2(),
         'page1': (BuildContext context) => page1(),
+
         'Observer': (BuildContext context) => Observer(),
         'ListView': (BuildContext context) => ListViewWidget(),
         'CustomScrollview': (BuildContext context) => CustomScrollviewWidget(),
+
         // 'AppBar':(BuildContext context) => CustomAppBar(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
