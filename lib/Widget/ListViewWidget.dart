@@ -51,13 +51,6 @@ class ListViewWidget extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
 // 更新列表
 class UpdateItemBean {
   String iconImg;
@@ -87,8 +80,8 @@ class AppStoreUpdateExample extends StatelessWidget {
     return ListView.separated(
         itemBuilder: (BuildContext context, int index) =>
             _buildRow(bean: _listItems[index]),
-          separatorBuilder: (BuildContext context, int index) => Divider(
-            indent: 10,
+        separatorBuilder: (BuildContext context, int index) => Divider(
+              indent: 10,
               endIndent: 10,
               height: 0.5,
               color: Colors.grey,

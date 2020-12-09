@@ -19,24 +19,22 @@ import 'package:flutter_exercise/Beans.dart';
 import 'Observer.dart';
 import 'ListViewWidget.dart';
 import 'CustomScrollview.dart';
-
+import 'Interaction.dart';
 
 final List<ListBean> _listRows = [
-  ListBean(title: 'Laguage', detail: '自定义语言') ,
-  ListBean(title: 'AppBar', detail: 'Material风格AppBar') ,
-  ListBean(title: 'StackWidget', detail: '栈控件，可展示多个控件') ,
-  ListBean(title: 'RowColumn', detail: '横向或者竖向多控件集合展示控件') ,
-  ListBean(title: 'Image', detail: '三种加载图片方式') ,
-  ListBean(title: 'Buttons', detail: '常见的按钮控件') ,
-  ListBean(title: 'Expand', detail: 'Expand包裹的子控件可以填满剩余的空间') ,
-  ListBean(title: 'Text', detail: '显示文本组件') ,
-  ListBean(title: 'LifeCycle', detail: 'Flutter生命周期') ,
-
-  ListBean(title: 'Observer', detail: '监听状态') ,
-  ListBean(title: 'ListView', detail: 'ListView常见的用法') ,
-  ListBean(title: 'CustomScrollview', detail: 'CustomScrollview') ,
-
-
+  ListBean(title: 'Laguage', detail: '自定义语言'),
+  ListBean(title: 'AppBar', detail: 'Material风格AppBar'),
+  ListBean(title: 'StackWidget', detail: '栈控件，可展示多个控件'),
+  ListBean(title: 'RowColumn', detail: '横向或者竖向多控件集合展示控件'),
+  ListBean(title: 'Image', detail: '三种加载图片方式'),
+  ListBean(title: 'Buttons', detail: '常见的按钮控件'),
+  ListBean(title: 'Expand', detail: 'Expand包裹的子控件可以填满剩余的空间'),
+  ListBean(title: 'Text', detail: '显示文本组件'),
+  ListBean(title: 'LifeCycle', detail: 'Flutter生命周期'),
+  ListBean(title: 'Observer', detail: '监听状态'),
+  ListBean(title: 'ListView', detail: 'ListView常见的用法'),
+  ListBean(title: 'CustomScrollview', detail: 'CustomScrollview'),
+  ListBean(title: 'Interaction', detail: '响应交互'),
 ];
 
 class HomePage extends StatelessWidget {
@@ -51,6 +49,7 @@ class HomePage extends StatelessWidget {
         primaryColor: Colors.blue,
       ),
       routes: <String, WidgetBuilder>{
+        'Interaction': (BuildContext context) => Interaction(),
         'Laguage': (BuildContext context) => Laguage(),
         'StackWidget': (BuildContext context) => StackWidget(),
         'RowColumn': (BuildContext context) => RowColumn(),
@@ -115,7 +114,6 @@ class _MyHomePageStateState extends State<MyHomePageState> {
   Widget _buildListView() {
     return ListView(
       children: _listRows.map((ListBean bean) {
-
         return _buildRow(bean);
       }).toList(),
     );
@@ -128,7 +126,10 @@ class _MyHomePageStateState extends State<MyHomePageState> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(bean.title),
-          Text(bean.detail,style: TextStyle(fontSize: 13),)
+          Text(
+            bean.detail,
+            style: TextStyle(fontSize: 13),
+          )
         ],
       ),
       onTap: () {
@@ -145,4 +146,3 @@ class _MyHomePageStateState extends State<MyHomePageState> {
 //     return Container();
 //   }
 // }
-
