@@ -1,3 +1,5 @@
+import 'dart:core';
+import 'dart:core';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ import 'package:flutter_exercise/Beans.dart';
 import 'Observer.dart';
 import 'ListViewWidget.dart';
 import 'CustomScrollview.dart';
+
+
 final List<ListBean> _listRows = [
   ListBean(title: 'Laguage', detail: '自定义语言') ,
   ListBean(title: 'AppBar', detail: 'Material风格AppBar') ,
