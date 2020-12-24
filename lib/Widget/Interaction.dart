@@ -39,7 +39,7 @@ class _GestureInteractionState extends State<GestureInteraction> {
           top: _top,
           left: _left,
           child: GestureDetector(
-
+            onTap: () => print("父视图ontap"),
             child: Container(
               child: GestureDetector(
                 child: Container(
@@ -47,24 +47,25 @@ class _GestureInteractionState extends State<GestureInteraction> {
                   height: 150,
                   color: Colors.red,
                 ),
+                onTap: () => print("Tap"),
+                onTapDown: (detail) => print("TapDown"),
+                onDoubleTap: () => print("onDoubleTap"),
+                onLongPress: () => print("onLongPress"),
+                // onScaleUpdate: (e) {
+                //   setState(() {
+                //
+                //     print('scale ${e.scale}');
+                //   });
+                // },
+                onPanUpdate: (detail) {
+                  setState(() {
+                    _left += detail.delta.dx;
+                    _top += detail.delta.dy;
+                  });
+                },
               ),
             ),
-            onTap: () => print("Tap"),
-            onTapDown: (detail) => print("TapDown"),
-            onDoubleTap: () => print("onDoubleTap"),
-            onLongPress: () => print("onLongPress"),
-            // onScaleUpdate: (e) {
-            //   setState(() {
-            //
-            //     print('scale ${e.scale}');
-            //   });
-            // },
-            onPanUpdate: (detail) {
-              setState(() {
-                _left += detail.delta.dx;
-                _top += detail.delta.dy;
-              });
-            },
+
           ),
         )
       ],

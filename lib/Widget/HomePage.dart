@@ -20,8 +20,16 @@ import 'Observer.dart';
 import 'ListViewWidget.dart';
 import 'CustomScrollview.dart';
 import 'Interaction.dart';
+import 'HttpRequest.dart';
+import 'Persistence.dart';
+import 'FormList.dart';
+import 'Tabbar.dart';
 
 final List<ListBean> _listRows = [
+  ListBean(title: 'TabbarController', detail: 'tabbar'),
+  ListBean(title: 'Persistence', detail: '本地存储'),
+
+  ListBean(title: 'FormList', detail: '常见表单页面'),
   ListBean(title: 'Laguage', detail: '自定义语言'),
   ListBean(title: 'AppBar', detail: 'Material风格AppBar'),
   ListBean(title: 'StackWidget', detail: '栈控件，可展示多个控件'),
@@ -35,6 +43,8 @@ final List<ListBean> _listRows = [
   ListBean(title: 'ListView', detail: 'ListView常见的用法'),
   ListBean(title: 'CustomScrollview', detail: 'CustomScrollview'),
   ListBean(title: 'Interaction', detail: '响应交互'),
+  ListBean(title: 'HttpRequest', detail: '网络请求'),
+
 ];
 
 class HomePage extends StatelessWidget {
@@ -64,6 +74,10 @@ class HomePage extends StatelessWidget {
         'Observer': (BuildContext context) => Observer(),
         'ListView': (BuildContext context) => ListViewWidget(),
         'CustomScrollview': (BuildContext context) => CustomScrollviewWidget(),
+        'HttpRequest': (BuildContext context) => RequestDemo2(),
+        'Persistence': (BuildContext context) => PersistenceTest1(),
+        'FormList': (BuildContext context) => FormList(),
+        'TabbarController': (BuildContext context) => TabbarController(),
 
         // 'AppBar':(BuildContext context) => CustomAppBar(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
