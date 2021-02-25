@@ -25,8 +25,10 @@ class _TabbarControllerState extends State<TabbarController>
     "电话",
   ];
 
+
   @override
   void initState() {
+
     // TODO: implement initState
     _tabCon = TabController(length: _tabs.length, vsync: this);
     _tabCon.addListener(() {
@@ -55,6 +57,7 @@ class _TabbarControllerState extends State<TabbarController>
 
   @override
   Widget build(BuildContext context) {
+
     return case2();
     return case1();
   }

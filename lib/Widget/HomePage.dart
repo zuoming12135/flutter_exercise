@@ -24,9 +24,14 @@ import 'HttpRequest.dart';
 import 'Persistence.dart';
 import 'FormList.dart';
 import 'Tabbar.dart';
-
+import 'Routes.dart';
+import 'RouterFirPage.dart';
+import 'package:flutter_exercise/Channel/MethondChannel.dart';
 final List<ListBean> _listRows = [
-  ListBean(title: 'TabbarController', detail: 'tabbar'),
+
+  ListBean(title: 'TabbarController', detail: 'tabbar',args: {"key":"value"}),
+  ListBean(title: 'MethondChannel', detail: '跨平台调用'),
+  ListBean(title: 'Routes', detail: '路由跳转'),
   ListBean(title: 'Persistence', detail: '本地存储'),
 
   ListBean(title: 'FormList', detail: '常见表单页面'),
@@ -78,11 +83,16 @@ class HomePage extends StatelessWidget {
         'Persistence': (BuildContext context) => PersistenceTest1(),
         'FormList': (BuildContext context) => FormList(),
         'TabbarController': (BuildContext context) => TabbarController(),
+        'Routes': (BuildContext context) => Routes(),
+        'RouterFirPage': (BuildContext context) => RouterFirPage(),
+        'MethondChannel': (BuildContext context) => MethondChanelTest(),
 
         // 'AppBar':(BuildContext context) => CustomAppBar(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
         // 'StackWidget':(BuildContext context) => StackWidget(),
       },
+      // onUnknownRoute: {(BuildContext context) => },
+
     );
   }
 }
@@ -148,7 +158,9 @@ class _MyHomePageStateState extends State<MyHomePageState> {
       ),
       onTap: () {
         // print('点击了 $title');
-        Navigator.of(context).pushNamed(bean.title);
+        // Navigator.of(context).pushNamed(bean.title);
+
+        Navigator.of(context).pushNamed(bean.title, arguments: bean.args);
       },
     );
   }
@@ -160,3 +172,4 @@ class _MyHomePageStateState extends State<MyHomePageState> {
 //     return Container();
 //   }
 // }
+
